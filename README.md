@@ -18,7 +18,7 @@ import tensorflow as tf
 x_data = [1, 2, 3]
 y_data = [1, 2, 3]
 
-# (W=1, b=0 가 되어야 한다는 것은 미리 알고 있다) 
+
 W = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 b = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 
@@ -149,7 +149,7 @@ $$ H(x) = Wx + b $$
 cost function
 $$ cost(W)=\frac { 1 }{ m } \sum _{ i=1}^{m}{ { (W{ x }^{ i }-y^{ i } })^{ 2 } }  $$
 In [2]:
-# cost 계산
+ cost 계산
 
 W = 0
 print (((W*1 - 1)**2 + (W*2 - 2)**2 + (W*3 - 3)** 2) / 3)
@@ -244,7 +244,7 @@ for step in range(1000):
 800 0.0 [1.] [5.2014947e-08]
 900 0.0 [1.] [5.2014947e-08]
 In [7]:
-# predict
+ predict
 
 print(sess.run(hypothesis, feed_dict={X: 5}))
 print(sess.run(hypothesis, feed_dict={X: 2.5}))
@@ -386,7 +386,7 @@ Repeat
 Do so until you converge to a local minimum
 Has an interesting property
 Where you start can determine which minimum you end up
-http://www.holehouse.org/mlclass/01_02_Introduction_regression_analysis_and_gr.html
+
 
 Formal definition
 $$ cost(W)=\frac { 1 }{ m } \sum _{i=1}^{m}{ { (W{ x }^{ i }-y^{ i } })^{ 2 } }  $$$$ \Downarrow $$$$ cost(W)=\frac { 1 }{ 2m } \sum _{i=1}^{m}{ { (W{ x }^{ i }-y^{ i } })^{ 2 } }  $$
@@ -425,7 +425,7 @@ cost = tf.reduce_mean(tf.square(hypothesis - Y))
 mean = tf.reduce_mean(tf.multiply(tf.multiply(W, X) - Y, X))
 descent = W - tf.multiply(0.01, mean)
 
-# W udpate
+w update
 update  = W.assign(descent) 
 
 init = tf.initializers.global_variables()
@@ -485,7 +485,7 @@ x1 (quiz 1)	x2 (quiz 2)	x3 (mid 1)	Y (final)
 89	91	90	180
 96	98	100	196
 73	66	70	142
-Test Scores for General Psychology ( https://goo.gl/g2T8Kp )
+Test Scores for General Psychology 
 
 Matrix multiplication
 dot product(=scalar product, 내적)
@@ -535,7 +535,7 @@ W1 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 W2 = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 b  = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 
-# hypothesis = W * X + b
+(hypothesis = W * X + b)
 hypothesis = W1 * x1_data + W2 * x2_data + b
 
 cost = tf.reduce_mean(tf.square(hypothesis - y_data))
@@ -627,8 +627,8 @@ Hypothesis without b
 In [8]:
 import tensorflow as tf
 
-# 앞의 코드에서 bias(b)를 행렬에 추가
-# 갯수가 같아야 하므로 b를 리스트로 처리
+(앞의 코드에서 bias(b)를 행렬에 추가)
+(갯수가 같아야 하므로 b를 리스트로 처리)
 
 x_data = [
     [1., 1., 1., 1., 1.], 
@@ -680,7 +680,7 @@ sess.close()
 1000  | 0.000000000000000 | [[1.1282769e-07 9.9999994e-01 1.0000000e+00]] | -0.119597 
 Multi-variable linear regression
 In [9]:
-# Multi-variable linear regression
+ (Multi-variable linear regression)
 import numpy as np
 import tensorflow as tf
 
@@ -699,7 +699,7 @@ x2_data = data[:,1]
 x3_data = data[:,2]
 y_data = data[:,3]
 
-# placeholders for a tensor that will be always fed
+(placeholders for a tensor that will be always fed)
 x1 = tf.placeholder(tf.float32)
 x2 = tf.placeholder(tf.float32)
 x3 = tf.placeholder(tf.float32)
@@ -712,10 +712,10 @@ b = tf.Variable(tf.random_normal([1]), name='bias')
 
 hypothesis = x1 * w1 + x2 * w2 + x3 * w3 + b
 
-# cost/loss function
+(cost/loss function)
 cost = tf.reduce_mean(tf.square(hypothesis - Y))
 
-# Minimize cost
+(Minimize cost)
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=1e-5)
 train = optimizer.minimize(cost)
 
