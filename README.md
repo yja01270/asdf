@@ -406,8 +406,6 @@ Convex function
 
 Gradient descent algorithm을 사용하려면, 비용함수 cost(W,b)가 Convex function 이어야 한다
 
-http://www.holehouse.org/mlclass/01_02_Introduction_regression_analysis_and_gr.html
-
 Gradient descent 구현
 In [5]:
 import tensorflow as tf
@@ -466,7 +464,7 @@ sess.close()
  1700 | 0.000005960464478 | 0.166666656732559 | 1.666667461395264 | 1.666667461395264
  1800 | 0.000005960464478 | 0.166666656732559 | 1.666667461395264 | 1.666667461395264
  1900 | 0.000005960464478 | 0.166666656732559 | 1.666667461395264 | 1.666667461395264
---------------------------------------------------
+
 [8.333338]
 [4.166669]
 Liner regression Summary
